@@ -7,12 +7,12 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy to Nginx
+      - name: Deploy index.html
         run: |
-          sudo cp index.html /var/www/cloud-cicd/index.html
-          sudo nginx -t
-          sudo systemctl reload nginx
+          cp index.html /var/www/cloud-cicd/index.html
+          ls -l /var/www/cloud-cicd:
+
+
