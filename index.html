@@ -61,9 +61,25 @@
     </p>
 </div>
 
+<div class="card">
+    <h2>Last Deployment Time</h2>
+    <p id="deployTime">Loading...</p>
+</div>
+
+
+
 <script>
     document.getElementById("time").innerHTML = new Date();
 </script>
+
+<script>
+fetch("deploy-time.txt")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("deployTime").innerText = data;
+    });
+</script>
+
 
 </body>
 </html>
