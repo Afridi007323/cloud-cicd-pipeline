@@ -1,17 +1,5 @@
-name: Docker Deploy (WSL Runner)
-
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  deploy:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-
       - name: Build & restart container
         run: |
-          docker compose down
-          docker compose up -d --build
+          docker-compose down || true
+          docker-compose up -d --build
           docker ps
