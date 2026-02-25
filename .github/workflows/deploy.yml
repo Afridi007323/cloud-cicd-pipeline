@@ -1,16 +1,4 @@
-name: Deploy to WSL Nginx
-
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  deploy:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-
       - name: Deploy index.html
         run: |
           cp index.html /var/www/cloud-cicd/index.html
-          ls -l /var/www/cloud-cicd
+          date > /var/www/cloud-cicd/deploy-time.txt
